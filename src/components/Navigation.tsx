@@ -136,29 +136,7 @@ const Navigation = () => {
               )}
             </div>
 
-            {/* Programs Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown("programs")}
-                className="flex items-center text-foreground hover:text-primary transition-colors font-medium py-2"
-              >
-                Programs
-                <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${activeDropdown === "programs" ? "rotate-180" : ""}`} />
-              </button>
-              {activeDropdown === "programs" && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg animate-fade-in">
-                  {dropdownMenus.programs.items.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={item.action}
-                      className="w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg last:rounded-b-lg"
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            
 
             {/* Students Dropdown */}
             <div className="relative">
@@ -166,7 +144,7 @@ const Navigation = () => {
                 onClick={() => toggleDropdown("students")}
                 className="flex items-center text-foreground hover:text-primary transition-colors font-medium py-2"
               >
-                Students
+                Student Corner
                 <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${activeDropdown === "students" ? "rotate-180" : ""}`} />
               </button>
               {activeDropdown === "students" && (
@@ -212,14 +190,14 @@ const Navigation = () => {
               onClick={() => scrollToSection("testimonials")}
               className="text-foreground hover:text-primary transition-colors font-medium py-2"
             >
-              Gallery
+              Donations
             </button>
 
             <button
               onClick={() => scrollToSection("contact")}
               className="text-foreground hover:text-primary transition-colors font-medium py-2"
             >
-              Contact
+              Contact Us
             </button>
 
             <Button
