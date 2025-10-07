@@ -41,6 +41,16 @@ const Navigation = () => {
   };
 
   const dropdownMenus = {
+    about: {
+      title: "About",
+      items: [
+        { label: "Our Mission", path: "/about/mission" },
+        { label: "Our Vision", path: "/about/vision" },
+        { label: "Our Guru", path: "/about/guru" },
+        { label: "Our Mentor", path: "/about/mentor" },
+        { label: "Testimonials", action: () => scrollToSection("testimonials") }
+      ]
+    },
     programs: {
       title: "Programs",
       items: [
@@ -75,8 +85,8 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <button 
-            onClick={() => scrollToSection("home")} 
+          <Link 
+            to="/"
             className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer"
             aria-label="Go to home page"
           >
@@ -86,7 +96,7 @@ const Navigation = () => {
             <span className="font-heading font-bold text-xl text-foreground">
               Little Musicians Academy
             </span>
-          </button>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6" ref={dropdownRef}>
@@ -96,13 +106,35 @@ const Navigation = () => {
             >
               Home
             </button> */}
-            
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-foreground hover:text-primary transition-colors font-medium py-2"
-            >
-              About LMA
-            </button>
+          
+
+            {/* About Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown("about")}
+                className="flex items-center text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                About
+                <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${activeDropdown === "about" ? "rotate-180" : ""}`} />
+              </button>
+              {activeDropdown === "about" && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg animate-fade-in">
+                  {dropdownMenus.about.items.map((item, index) => (
+                    <Link
+                      key={index}
+                      to={item.path || "#"}
+                      onClick={() => {
+                        if (item.action) item.action();
+                        setActiveDropdown(null);
+                      }}
+                      className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg last:rounded-b-lg"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Programs Dropdown */}
             <div className="relative">
@@ -225,6 +257,24 @@ const Navigation = () => {
               >
                 About LMA
               </button>
+
+              {/* Mobile About Menu */}
+              <div className="border-l-2 border-primary/20 pl-4">
+                <p className="text-primary font-semibold mb-2">About</p>
+                {dropdownMenus.about.items.map((item, index) => (
+                  <Link
+                    key={index}
+                    to={item.path || "#"}
+                    onClick={() => {
+                      if (item.action) item.action();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
 
               {/* Mobile Programs Menu */}
               <div className="border-l-2 border-primary/20 pl-4">
