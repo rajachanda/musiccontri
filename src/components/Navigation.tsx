@@ -60,11 +60,15 @@ const Navigation = () => {
       ]
     },
     students: {
-      title: "Students",
+      title: "Student Corner",
       items: [
-        { label: "Alumni", action: () => scrollToSection("testimonials") },
-        { label: "Current Students", action: () => scrollToSection("about") },
-        { label: "Success Stories", action: () => scrollToSection("testimonials") }
+        { label: "Join LMA", path: "/student-corner/join-lma" },
+        { label: "Teaching Methodology", path: "/student-corner/teaching-methodology" },
+        { label: "Songs and Lyrics", path: "/student-corner/songs-lyrics" },
+        { label: "Stars of LMA", path: "/student-corner/stars-of-lma" },
+        { label: "Budding Artists", path: "/student-corner/budding-artists" },
+        { label: "ALMA", path: "/student-corner/alma" },
+        { label: "Inspirational Programmes", path: "/student-corner/inspirational-programmes" }
       ]
     },
     activities: {
@@ -148,15 +152,19 @@ const Navigation = () => {
                 <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${activeDropdown === "students" ? "rotate-180" : ""}`} />
               </button>
               {activeDropdown === "students" && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg animate-fade-in">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-lg shadow-lg animate-fade-in">
                   {dropdownMenus.students.items.map((item, index) => (
-                    <button
+                    <Link
                       key={index}
-                      onClick={item.action}
-                      className="w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg last:rounded-b-lg"
+                      to={item.path || "#"}
+                      onClick={() => {
+                        if (item.action) item.action();
+                        setActiveDropdown(null);
+                      }}
+                      className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg last:rounded-b-lg"
                     >
                       {item.label}
-                    </button>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -270,15 +278,19 @@ const Navigation = () => {
 
               {/* Mobile Students Menu */}
               <div className="border-l-2 border-primary/20 pl-4">
-                <p className="text-primary font-semibold mb-2">Students</p>
+                <p className="text-primary font-semibold mb-2">Student Corner</p>
                 {dropdownMenus.students.items.map((item, index) => (
-                  <button
+                  <Link
                     key={index}
-                    onClick={item.action}
+                    to={item.path || "#"}
+                    onClick={() => {
+                      if (item.action) item.action();
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 ))}
               </div>
 
