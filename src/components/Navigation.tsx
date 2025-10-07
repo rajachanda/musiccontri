@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,14 +75,18 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-2">
+          <button 
+            onClick={() => scrollToSection("home")} 
+            className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer"
+            aria-label="Go to home page"
+          >
             <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">♪</span>
             </div>
             <span className="font-heading font-bold text-xl text-foreground">
               Little Musicians Academy
             </span>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6" ref={dropdownRef}>
