@@ -90,12 +90,12 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6" ref={dropdownRef}>
-            <button
+            {/* <button
               onClick={() => scrollToSection("home")}
               className="text-foreground hover:text-primary transition-colors font-medium py-2"
             >
               Home
-            </button>
+            </button> */}
             
             <button
               onClick={() => scrollToSection("about")}
