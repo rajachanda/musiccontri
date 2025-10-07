@@ -24,20 +24,21 @@ const Hero = () => {
             <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
               <Star className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">
-                Inspiring Musical Excellence Since 2010
+                Free Music Education Since 2010 • Non-Profit Organization
               </span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Discover Your
-              <span className="block text-primary">Musical Journey</span>
+              Where Music
+              <span className="block text-primary">Comes to Life</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              At Little Musicians Academy, we nurture young talent through
-              comprehensive music education. Our expert instructors provide
-              personalized instruction in a warm, encouraging environment where
-              every child can thrive and develop their unique musical voice.
+              Little Musicians Academy is a temple of music where students,
+              families, and community unite. We provide completely free music
+              education to children from all backgrounds, fostering both musical
+              excellence and moral values through the transformative power of
+              music.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -46,15 +47,15 @@ const Hero = () => {
                 onClick={() => scrollToSection("contact")}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4 shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
               >
-                Start Your Free Trial
+                Join LMA Family
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("courses")}
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-4 transition-all transform hover:scale-105"
+                className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground text-lg px-8 py-4 transition-all transform hover:scale-105"
               >
-                Explore Programs
+                Support Our Mission
               </Button>
             </div>
 
@@ -64,21 +65,21 @@ const Hero = () => {
                   <Music className="w-8 h-8 text-primary" />
                 </div>
                 <p className="text-2xl font-bold text-foreground">850+</p>
-                <p className="text-sm text-muted-foreground">Active Students</p>
+                <p className="text-sm text-muted-foreground">Students Served</p>
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-2">
                   <Award className="w-8 h-8 text-primary" />
                 </div>
-                <p className="text-2xl font-bold text-foreground">25+</p>
-                <p className="text-sm text-muted-foreground">Expert Instructors</p>
+                <p className="text-2xl font-bold text-foreground">100%</p>
+                <p className="text-sm text-muted-foreground">Free Education</p>
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-2">
                   <Star className="w-8 h-8 text-primary" />
                 </div>
                 <p className="text-2xl font-bold text-foreground">14+</p>
-                <p className="text-sm text-muted-foreground">Years Excellence</p>
+                <p className="text-sm text-muted-foreground">Years of Service</p>
               </div>
             </div>
           </div>

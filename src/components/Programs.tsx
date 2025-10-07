@@ -7,58 +7,58 @@ const Programs = () => {
     {
       icon: Users,
       title: "Early Childhood Music",
-      age: "Ages 18 months - 5 years",
-      description: "Our Kindermusik-inspired program introduces the youngest learners to rhythm, melody, and movement through interactive play.",
+      age: "Ages 3-6 years",
+      description: "Introduce your little ones to the magical world of music through play, rhythm, and movement. Parent participation encouraged for family bonding.",
       features: [
-        "Parent-child bonding time",
-        "Sensory exploration",
-        "Basic rhythm and pitch",
-        "Social development"
+        "Parent-child sessions",
+        "Rhythm & movement",
+        "Basic musical concepts",
+        "Cultural songs"
       ],
       schedule: "Weekly 45-min sessions",
-      price: "$120/month"
+      price: "Completely FREE"
     },
     {
       icon: Target,
-      title: "Pre-Professional Track",
-      age: "Ages 12+",
-      description: "Intensive training for serious young musicians preparing for conservatory auditions and music careers.",
+      title: "Classical Indian Music",
+      age: "Ages 6+ years",
+      description: "Comprehensive training in Indian classical music including vocals, tabla, harmonium, and other traditional instruments with emphasis on cultural values.",
       features: [
-        "Advanced technique",
-        "Music theory mastery", 
-        "Performance coaching",
-        "College prep support"
+        "Vocal training",
+        "Instrument instruction", 
+        "Music theory",
+        "Cultural education"
       ],
-      schedule: "Multiple weekly sessions",
-      price: "Custom pricing"
+      schedule: "Flexible timing",
+      price: "Completely FREE"
     },
     {
       icon: Calendar,
-      title: "Summer Music Camps",
-      age: "Ages 6-16",
-      description: "Week-long intensive camps combining individual lessons, ensemble work, and creative projects.",
+      title: "Community Events",
+      age: "All ages",
+      description: "Regular performances, cultural celebrations, and charity events that bring our community together and showcase student talents.",
       features: [
-        "Daily individual lessons",
-        "Ensemble participation",
-        "Music technology",
-        "Final showcase"
+        "Student performances",
+        "Cultural festivals",
+        "Charity concerts",
+        "Community gatherings"
       ],
-      schedule: "Full or half-day options",
-      price: "$275/week"
+      schedule: "Monthly events",
+      price: "Open to All"
     },
     {
       icon: Clock,
-      title: "Adult Programs",
-      age: "Ages 18+",
-      description: "Never too late to start! Flexible programs designed for adult learners with busy schedules.",
+      title: "Family Programs", 
+      age: "Multi-generational",
+      description: "Special programs designed for entire families to learn and practice music together, strengthening bonds across generations.",
       features: [
-        "Flexible scheduling",
-        "Adult-focused curriculum",
-        "Stress-relief focus",
-        "Social opportunities"
+        "Family sessions",
+        "Intergenerational learning",
+        "Cultural preservation",
+        "Community building"
       ],
-      schedule: "Flexible timing",
-      price: "From $50/lesson"
+      schedule: "Weekend sessions",
+      price: "Completely FREE"
     }
   ];
 
@@ -74,11 +74,11 @@ const Programs = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Specialized <span className="text-primary">Learning Tracks</span>
+            Our <span className="text-primary">Community Programs</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Beyond individual lessons, we offer specialized programs designed for different ages, 
-            skill levels, and learning objectives. Find the perfect path for your musical journey.
+            All our programs are offered completely free of charge. We believe that music education should be 
+            accessible to every child and family in our community, regardless of financial circumstances.
           </p>
         </div>
 
@@ -127,19 +127,19 @@ const Programs = () => {
         </div>
 
         <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-8 md:p-12 text-center">
-          <h3 className="text-3xl font-bold mb-4">Performance Opportunities</h3>
+          <h3 className="text-3xl font-bold mb-4">Our Community Impact</h3>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="bg-card p-6 rounded-2xl">
-              <h4 className="font-bold text-lg mb-2">Student Recitals</h4>
-              <p className="text-muted-foreground text-sm">Quarterly showcases for all students to perform in a supportive environment.</p>
+              <h4 className="font-bold text-lg mb-2">Free Education</h4>
+              <p className="text-muted-foreground text-sm">No tuition fees, no hidden costs. Music education should be accessible to all children.</p>
             </div>
             <div className="bg-card p-6 rounded-2xl">
-              <h4 className="font-bold text-lg mb-2">Masterclasses</h4>
-              <p className="text-muted-foreground text-sm">Special workshops with guest artists and professional musicians.</p>
+              <h4 className="font-bold text-lg mb-2">Cultural Heritage</h4>
+              <p className="text-muted-foreground text-sm">Preserving and sharing the rich traditions of Indian classical music with future generations.</p>
             </div>
             <div className="bg-card p-6 rounded-2xl">
-              <h4 className="font-bold text-lg mb-2">Competitions</h4>
-              <p className="text-muted-foreground text-sm">Support and preparation for local, regional, and national music competitions.</p>
+              <h4 className="font-bold text-lg mb-2">Character Building</h4>
+              <p className="text-muted-foreground text-sm">Developing discipline, respect, and moral values through the sacred practice of music.</p>
             </div>
           </div>
           <Button
