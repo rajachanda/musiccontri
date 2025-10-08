@@ -2,88 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Definition of the design system with enhanced cultural and modern elements */
 
 @layer base {
   :root {
-    /* Warm cream background from color palette */
-    --background: 42 67% 95%;
-    --foreground: 25 20% 20%;
+    /* Enhanced warm cream background */
+    --background: 42 67% 97%;
+    --foreground: 25 25% 15%;
 
-    /* Card styles with warm tones */
+    /* Card styles with subtle warmth and depth */
     --card: 0 0% 100%;
-    --card-foreground: 25 20% 20%;
+    --card-foreground: 25 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 25 20% 20%;
+    --popover-foreground: 25 25% 15%;
 
-    /* Yellow-orange primary from color palette */
-    --primary: 37 89% 61%;
+    /* Refined primary: warm golden yellow */
+    --primary: 37 89% 58%;
     --primary-foreground: 0 0% 100%;
 
-    /* Bright orange secondary from color palette */
-    --secondary: 24 100% 63%;
+    /* Enhanced secondary: vibrant orange */
+    --secondary: 24 100% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted warm tones */
-    --muted: 42 50% 90%;
-    --muted-foreground: 25 15% 45%;
-
-    /* Accent using primary orange */
-    --accent: 24 100% 63%;
+    /* New accent color: earthy teal for variety */
+    --accent: 174 44% 51%;
     --accent-foreground: 0 0% 100%;
+
+    /* Improved muted tones for better readability */
+    --muted: 42 50% 92%;
+    --muted-foreground: 25 20% 35%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 42 30% 85%;
-    --input: 42 30% 85%;
-    --ring: 37 89% 61%;
+    --border: 42 30% 88%;
+    --input: 42 30% 88%;
+    --ring: 37 89% 58%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    /* Custom design tokens for Little Musicians Academy */
-    --hero-gradient-start: 42 67% 95%;
-    --hero-gradient-end: 37 89% 91%;
+    /* Enhanced design tokens with cultural inspiration */
+    --hero-gradient-start: 42 67% 97%;
+    --hero-gradient-mid: 37 70% 92%;
+    --hero-gradient-end: 35 75% 88%;
     
     --section-bg-light: 0 0% 100%;
-    --section-bg-warm: 42 67% 95%;
+    --section-bg-warm: 42 67% 96%;
+    --section-bg-cultural: 37 40% 94%;
     
-    /* Shadows with warm glow */
-    --shadow-warm: 37 89% 61%;
-    --shadow-glow: 24 100% 63%;
+    /* Enhanced shadows with warm depth */
+    --shadow-warm: 37 50% 70%;
+    --shadow-glow: 24 80% 70%;
+    --shadow-cultural: 174 30% 60%;
+
+    /* Cultural pattern colors */
+    --pattern-primary: 37 89% 95%;
+    --pattern-secondary: 24 100% 95%;
+    --pattern-accent: 174 44% 95%;
   }
 
   .dark {
-    --background: 25 25% 10%;
-    --foreground: 42 67% 95%;
+    --background: 25 30% 8%;
+    --foreground: 42 67% 92%;
 
-    --card: 25 20% 15%;
-    --card-foreground: 42 67% 95%;
+    --card: 25 25% 12%;
+    --card-foreground: 42 67% 92%;
 
-    --popover: 25 20% 15%;
-    --popover-foreground: 42 67% 95%;
+    --popover: 25 25% 12%;
+    --popover-foreground: 42 67% 92%;
 
-    --primary: 37 89% 61%;
+    --primary: 37 89% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 24 100% 63%;
+    --secondary: 24 100% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 25 20% 20%;
-    --muted-foreground: 42 30% 65%;
-
-    --accent: 24 100% 63%;
+    --accent: 174 44% 51%;
     --accent-foreground: 0 0% 100%;
+
+    --muted: 25 25% 18%;
+    --muted-foreground: 42 30% 60%;
 
     --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 20% 25%;
-    --input: 25 20% 25%;
-    --ring: 37 89% 61%;
+    --border: 25 25% 22%;
+    --input: 25 25% 22%;
+    --ring: 37 89% 58%;
+
+    --shadow-warm: 37 50% 30%;
+    --shadow-glow: 24 80% 40%;
+    --shadow-cultural: 174 30% 30%;
   }
 }
 
@@ -95,20 +105,102 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-body;
     scroll-behavior: smooth;
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  h1 { @apply text-5xl md:text-6xl lg:text-7xl font-bold; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold; }
+  h3 { @apply text-2xl md:text-3xl font-bold; }
+  h4 { @apply text-xl md:text-2xl font-semibold; }
+  h5 { @apply text-lg md:text-xl font-semibold; }
+  h6 { @apply text-base md:text-lg font-semibold; }
+
+  p {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+}
+
+@layer components {
+  /* Cultural pattern backgrounds */
+  .cultural-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--pattern-primary)) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, hsl(var(--pattern-secondary)) 1px, transparent 1px);
+    background-size: 40px 40px, 20px 20px;
+    background-position: 0 0, 20px 20px;
+  }
+
+  .lotus-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F4A261' fill-opacity='0.03'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Enhanced button styles */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground;
+    @apply shadow-lg hover:shadow-xl;
+    @apply transform hover:scale-105 active:scale-95;
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground;
+    @apply shadow-lg hover:shadow-xl;
+    @apply transform hover:scale-105 active:scale-95;
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .btn-accent {
+    @apply bg-accent hover:bg-accent/90 text-accent-foreground;
+    @apply shadow-lg hover:shadow-xl;
+    @apply transform hover:scale-105 active:scale-95;
+    @apply transition-all duration-200 ease-out;
+  }
+
+  /* Enhanced card styles */
+  .card-elevated {
+    @apply bg-card border border-border/50 rounded-2xl;
+    @apply shadow-lg hover:shadow-2xl;
+    @apply transform hover:-translate-y-2;
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-cultural {
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--section-bg-cultural)) 100%);
+    @apply border-2 border-transparent hover:border-primary/20;
+  }
+
+  /* Improved spacing utilities */
+  .section-padding {
+    @apply py-20 md:py-24 lg:py-28;
+  }
+
+  .container-padding {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  .content-max-width {
+    @apply max-w-4xl mx-auto;
   }
 }
 
 @layer utilities {
+  /* Enhanced animations */
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
+    animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .animate-float {
@@ -116,14 +208,40 @@ All colors MUST be HSL.
   }
 
   .animate-pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .animate-cultural-breath {
+    animation: culturalBreath 4s ease-in-out infinite;
+  }
+
+  /* Text shadow utilities */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Cultural gradient utilities */
+  .bg-cultural-warm {
+    background: linear-gradient(135deg, hsl(var(--hero-gradient-start)) 0%, hsl(var(--hero-gradient-mid)) 50%, hsl(var(--hero-gradient-end)) 100%);
+  }
+
+  .bg-cultural-accent {
+    background: linear-gradient(135deg, hsl(var(--pattern-primary)) 0%, hsl(var(--pattern-accent)) 100%);
   }
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -134,7 +252,7 @@ All colors MUST be HSL.
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -142,38 +260,78 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
-  50% {
-    transform: translateY(-20px);
+  33% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-1deg);
   }
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2), 0 0 40px hsl(var(--primary) / 0.1);
   }
   50% {
-    box-shadow: 0 0 30px hsl(var(--primary) / 0.6);
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.2);
   }
 }
 
-/* Custom scrollbar */
+@keyframes culturalBreath {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+    opacity: 0.9;
+  }
+}
+
+/* Enhanced scrollbar with cultural touch */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
   background: hsl(var(--muted));
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary));
-  border-radius: 4px;
+  background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--secondary)));
+  border-radius: 5px;
+  border: 1px solid hsl(var(--border));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.8);
+  background: linear-gradient(180deg, hsl(var(--primary) / 0.8), hsl(var(--secondary) / 0.8));
+}
+
+/* Selection colors */
+::selection {
+  background: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
+}
+
+/* Focus improvements */
+:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+  border-radius: 4px;
 }
