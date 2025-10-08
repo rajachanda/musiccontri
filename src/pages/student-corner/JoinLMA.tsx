@@ -3,8 +3,13 @@ import Footer from "@/components/Footer";
 import { Heart, Music, Users, Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 const JoinLMA = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {

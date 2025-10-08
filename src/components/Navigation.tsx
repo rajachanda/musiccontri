@@ -51,14 +51,6 @@ const Navigation = () => {
         { label: "Testimonials", action: () => scrollToSection("testimonials") }
       ]
     },
-    programs: {
-      title: "Programs",
-      items: [
-        { label: "Join LMA", action: () => scrollToSection("contact") },
-        { label: "Teaching Methods", action: () => scrollToSection("about") },
-        { label: "Songs", action: () => scrollToSection("courses") }
-      ]
-    },
     students: {
       title: "Student Corner",
       items: [
@@ -74,9 +66,9 @@ const Navigation = () => {
     activities: {
       title: "Activities",
       items: [
-        { label: "Events", action: () => scrollToSection("programs") },
-        { label: "Charity", action: () => scrollToSection("about") },
-        { label: "Workshops", action: () => scrollToSection("programs") }
+        { label: "Events", path: "/activities/events" },
+        { label: "Charity", path: "/activities/charity" },
+        { label: "Workshops", path: "/activities/workshops" }
       ]
     }
   };
@@ -182,24 +174,28 @@ const Navigation = () => {
               {activeDropdown === "activities" && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg animate-fade-in">
                   {dropdownMenus.activities.items.map((item, index) => (
-                    <button
+                    <Link
                       key={index}
-                      onClick={item.action}
-                      className="w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg last:rounded-b-lg"
+                      to={item.path || "#"}
+                      onClick={() => {
+                        if (item.action) item.action();
+                        setActiveDropdown(null);
+                      }}
+                      className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg last:rounded-b-lg"
                     >
                       {item.label}
-                    </button>
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
 
-            <button
-              onClick={() => scrollToSection("testimonials")}
+            <Link
+              to="/donations"
               className="text-foreground hover:text-primary transition-colors font-medium py-2"
             >
               Donations
-            </button>
+            </Link>
 
             <button
               onClick={() => scrollToSection("contact")}
@@ -298,13 +294,17 @@ const Navigation = () => {
               <div className="border-l-2 border-primary/20 pl-4">
                 <p className="text-primary font-semibold mb-2">Activities</p>
                 {dropdownMenus.activities.items.map((item, index) => (
-                  <button
+                  <Link
                     key={index}
-                    onClick={item.action}
+                    to={item.path || "#"}
+                    onClick={() => {
+                      if (item.action) item.action();
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 ))}
               </div>
 

@@ -2,8 +2,13 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Award, Heart, Music, Users } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useEffect } from "react";
 
 const Guru = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen" style={{ background: `hsl(var(--background))` }}>
       <Navigation />

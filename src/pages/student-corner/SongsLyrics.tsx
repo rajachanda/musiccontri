@@ -3,8 +3,13 @@ import Footer from "@/components/Footer";
 import { Music, Search, Download, Play } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 const SongsLyrics = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const songCategories = [
     {
       title: "Devotional Songs",
