@@ -6,44 +6,44 @@ const Courses = () => {
   const courses = [
     {
       icon: Piano,
-      title: "Piano Excellence",
-      age: "Ages 4+",
-      description: "Comprehensive piano instruction from beginner to advanced levels. Master classical technique, contemporary styles, and develop strong musical foundation through our structured curriculum.",
-      features: ["Classical & Contemporary", "ABRSM/RCM Preparation", "Recital Opportunities", "Theory Integration"],
+      title: "Indian Classical Vocal",
+      age: "Ages 4+", 
+      description: "Comprehensive training in Indian classical vocal music including ragas, talas, and devotional songs. Build strong foundation through our structured curriculum.",
+      features: ["Raga & Tala Training", "Devotional Songs", "Cultural Education", "Character Building"],
       color: "primary",
-      duration: "30-60 min lessons",
-      price: "From $45/lesson",
+      duration: "Flexible timing",
+      price: "Completely FREE"
     },
     {
       icon: Guitar,
-      title: "Guitar Mastery",
+      title: "Instrumental Training",
       age: "Ages 6+",
-      description: "Learn acoustic and electric guitar with focus on technique, music theory, and performance skills. From strumming your first chord to advanced soloing techniques.",
-      features: ["Acoustic & Electric", "Multiple Genres", "Chord Progressions", "Performance Skills"],
-      color: "secondary",
-      duration: "30-60 min lessons",
-      price: "From $40/lesson",
+      description: "Learn harmonium, tabla, and other traditional instruments with focus on technique and cultural understanding.",
+      features: ["Harmonium & Tabla", "Traditional Technique", "Ensemble Playing", "Performance Skills"],
+      color: "secondary", 
+      duration: "Flexible timing",
+      price: "Completely FREE"
     },
     {
       icon: Music2,
-      title: "Strings Program",
+      title: "Music Theory",
       age: "Ages 5+",
-      description: "Violin, viola, and cello instruction using proven methodologies including Suzuki and traditional approaches. Develop beautiful tone and advanced technique.",
-      features: ["Suzuki Method", "Traditional Approach", "Ensemble Playing", "Competition Prep"],
+      description: "Understanding of Indian classical music theory, notation, and the science behind ragas and talas.",
+      features: ["Raga Theory", "Tala Systems", "Notation", "Musical Analysis"],
       color: "primary",
-      duration: "30-60 min lessons",
-      price: "From $50/lesson",
+      duration: "Group sessions", 
+      price: "Completely FREE"
     },
     {
       icon: Mic,
-      title: "Voice & Performance",
+      title: "Performance Training",
       age: "Ages 7+",
-      description: "Vocal training focused on technique, breathing, performance confidence, and repertoire development across classical, musical theater, and contemporary styles.",
-      features: ["Proper Technique", "Stage Presence", "Repertoire Building", "Audition Prep"],
+      description: "Build confidence through regular performances, concerts, and community events. Develop stage presence and overcome performance anxiety.",
+      features: ["Stage Presence", "Community Events", "Confidence Building", "Cultural Programs"],
       color: "secondary",
-      duration: "30-45 min lessons",
-      price: "From $42/lesson",
-    },
+      duration: "Event-based",
+      price: "Completely FREE"
+    }
   ];
 
   const scrollToContact = () => {
@@ -72,7 +72,7 @@ const Courses = () => {
             return (
               <Card
                 key={index}
-                className="p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-card animate-slide-up border-2 border-transparent hover:border-primary/30"
+                className="p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-card animate-slide-up border-2 border-transparent hover:border-primary/30 h-full flex flex-col"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className={`w-16 h-16 bg-${course.color}/10 rounded-2xl flex items-center justify-center mb-4 mx-auto`}>
@@ -84,7 +84,7 @@ const Courses = () => {
                   <p className="text-sm text-primary font-semibold">{course.age}</p>
                   <p className="text-xs text-muted-foreground">{course.duration}</p>
                 </div>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{course.description}</p>
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">{course.description}</p>
                 
                 <ul className="space-y-2 mb-6">
                   {course.features.map((feature, idx) => (
@@ -95,16 +95,18 @@ const Courses = () => {
                   ))}
                 </ul>
 
-                <div className="text-center mb-4">
-                  <p className="text-lg font-bold text-primary">{course.price}</p>
-                </div>
+                <div className="mt-auto">
+                  <div className="text-center mb-4">
+                    <p className="text-lg font-bold text-primary">{course.price}</p>
+                  </div>
 
-                <Button 
-                  onClick={scrollToContact}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all transform hover:scale-105"
-                >
-                  Schedule Trial
-                </Button>
+                  <Button 
+                    onClick={scrollToContact}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all transform hover:scale-105"
+                  >
+                    Schedule Trial
+                  </Button>
+                </div>
               </Card>
             );
           })}
@@ -114,14 +116,14 @@ const Courses = () => {
           <h3 className="text-3xl font-bold mb-6">Additional Specialties</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {[
-              "Drums & Percussion", 
-              "Woodwinds (Flute, Clarinet)", 
-              "Brass (Trumpet, Trombone)", 
-              "Music Theory & Composition",
-              "Early Childhood Music",
-              "Adult Lessons",
-              "Ensemble Classes",
-              "Summer Intensives"
+              "Early Childhood Music (Ages 3-6)", 
+              "Family Music Sessions", 
+              "Community Concerts", 
+              "Cultural Festivals",
+              "Character Development",
+              "Volunteer Opportunities", 
+              "Music Therapy Sessions",
+              "Intergenerational Programs"
             ].map((program, idx) => (
               <div
                 key={idx}
@@ -132,8 +134,8 @@ const Courses = () => {
             ))}
           </div>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Can't find the perfect fit? Our experienced team will work with you to create a customized learning path 
-            that matches your child's interests, goals, and learning style. Every musical journey is unique!
+            All our programs are completely free! We believe music education should be accessible to every child 
+            regardless of their family's financial situation. Join our community today!
           </p>
           <Button
             onClick={scrollToContact}

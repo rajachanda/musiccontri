@@ -27,7 +27,7 @@ const Hero = () => {
                 <Star className="w-3 h-3 text-primary-foreground" />
               </div>
               <span className="text-sm font-semibold text-primary">
-                Free Music Education Since 1999 • Non-Profit Organization
+                Completely Free Music Education Since 1999 • Non-Profit Organization
               </span>
             </div>
 
@@ -62,7 +62,7 @@ const Hero = () => {
                 onClick={() => scrollToSection("courses")}
                 className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-10 py-4 rounded-full font-semibold shadow-md hover:shadow-xl transition-all transform hover:scale-105"
               >
-                Support Our Mission
+                Learn More - It's FREE!
               </Button>
             </div>
 

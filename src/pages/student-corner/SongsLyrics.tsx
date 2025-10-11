@@ -4,6 +4,7 @@ import { Music, Search, Download, Play } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const SongsLyrics = () => {
   useEffect(() => {
@@ -12,28 +13,39 @@ const SongsLyrics = () => {
 
   const songCategories = [
     {
+      title: "Composed by Sri Ramachary K",
+      count: 15,
+      description: "Original compositions by our music director",
+      color: "primary",
+      path: "/student-corner/songs-lyrics/composed-by-sri-ramachary-k"
+    },
+    {
       title: "Devotional Songs",
       count: 25,
       description: "Bhajans, Stotras, and spiritual compositions",
-      color: "primary"
+      color: "secondary",
+      path: "/student-corner/songs-lyrics/devotional-songs"
     },
     {
-      title: "Classical Compositions",
-      count: 18,
-      description: "Kritis, Varnams, and traditional pieces",
-      color: "secondary"
-    },
-    {
-      title: "Folk Songs",
-      count: 15,
-      description: "Regional folk music and cultural songs",
-      color: "primary"
-    },
-    {
-      title: "Children's Songs",
+      title: "Light Music Songs",
       count: 30,
-      description: "Fun and educational songs for young learners",
-      color: "secondary"
+      description: "Contemporary and accessible songs for all ages",
+      color: "primary",
+      path: "/student-corner/songs-lyrics/light-music-songs"
+    },
+    {
+      title: "Annamacharya Keerthanalu",
+      count: 20,
+      description: "Sacred compositions by the great saint-composer",
+      color: "secondary",
+      path: "/student-corner/songs-lyrics/annamacharya-keerthanalu"
+    },
+    {
+      title: "Patriotic Songs",
+      count: 12,
+      description: "Songs that inspire love for our nation",
+      color: "primary",
+      path: "/student-corner/songs-lyrics/patriotic-songs"
     }
   ];
 
@@ -65,16 +77,22 @@ const SongsLyrics = () => {
             </div>
 
             {/* Categories Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {songCategories.map((category, index) => (
-                <Card key={index} className="p-6 text-center hover:shadow-lg transition-all bg-card border-2 border-transparent hover:border-primary/20">
-                  <div className={`w-16 h-16 bg-${category.color}/10 rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <Music className={`w-8 h-8 text-${category.color}`} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{category.title}</h3>
-                  <p className="text-2xl font-bold text-primary mb-2">{category.count} Songs</p>
-                  <p className="text-muted-foreground text-sm">{category.description}</p>
-                </Card>
+                <Link 
+                  key={index} 
+                  to={category.path}
+                  className="block group"
+                >
+                  <Card className="p-6 text-center hover:shadow-lg transition-all bg-card border-2 border-transparent hover:border-primary/20 group-hover:scale-105 h-full">
+                    <div className={`w-16 h-16 bg-${category.color}/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-${category.color}/20 transition-colors`}>
+                      <Music className={`w-8 h-8 text-${category.color}`} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{category.title}</h3>
+                    <p className="text-2xl font-bold text-primary mb-2">{category.count} Songs</p>
+                    <p className="text-muted-foreground text-sm">{category.description}</p>
+                  </Card>
+                </Link>
               ))}
             </div>
 

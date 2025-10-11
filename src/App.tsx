@@ -19,6 +19,11 @@ import Charity from "@/pages/activities/Charity";
 import Workshops from "@/pages/activities/Workshops";
 import Donations from "@/pages/Donations";
 import NotFound from "@/components/NotFound";
+import ComposedBySriRamacharyK from "@/pages/student-corner/songs-lyrics/ComposedBySriRamacharyK";
+import DevotionalSongs from "@/pages/student-corner/songs-lyrics/DevotionalSongs";
+import LightMusicSongs from "@/pages/student-corner/songs-lyrics/LightMusicSongs";
+import AnnamacharyaKeerthanalu from "@/pages/student-corner/songs-lyrics/AnnamacharyaKeerthanalu";
+import PatrioticSongs from "@/pages/student-corner/songs-lyrics/PatrioticSongs";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +46,11 @@ function App() {
               <Route path="/student-corner/join-lma" element={<JoinLMA />} />
               <Route path="/student-corner/teaching-methodology" element={<TeachingMethodology />} />
               <Route path="/student-corner/songs-lyrics" element={<SongsLyrics />} />
+              <Route path="/student-corner/songs-lyrics/composed-by-sri-ramachary-k" element={<ComposedBySriRamacharyK />} />
+              <Route path="/student-corner/songs-lyrics/devotional-songs" element={<DevotionalSongs />} />
+              <Route path="/student-corner/songs-lyrics/light-music-songs" element={<LightMusicSongs />} />
+              <Route path="/student-corner/songs-lyrics/annamacharya-keerthanalu" element={<AnnamacharyaKeerthanalu />} />
+              <Route path="/student-corner/songs-lyrics/patriotic-songs" element={<PatrioticSongs />} />
               <Route path="/student-corner/stars-of-lma" element={<StarsOfLMA />} />
               <Route path="/student-corner/budding-artists" element={<BuddingArtists />} />
               <Route path="/student-corner/alma" element={<ALMA />} />

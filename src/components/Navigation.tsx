@@ -56,7 +56,17 @@ const Navigation = () => {
       items: [
         { label: "Join LMA", path: "/student-corner/join-lma" },
         { label: "Teaching Methodology", path: "/student-corner/teaching-methodology" },
-        { label: "Songs and Lyrics", path: "/student-corner/songs-lyrics" },
+        { 
+          label: "Songs and Lyrics", 
+          path: "/student-corner/songs-lyrics",
+          submenu: [
+            { label: "Composed by Sri Ramachary K", path: "/student-corner/songs-lyrics/composed-by-sri-ramachary-k" },
+            { label: "Devotional Songs", path: "/student-corner/songs-lyrics/devotional-songs" },
+            { label: "Light Music Songs", path: "/student-corner/songs-lyrics/light-music-songs" },
+            { label: "Annamacharya Keerthanalu", path: "/student-corner/songs-lyrics/annamacharya-keerthanalu" },
+            { label: "Patriotic Songs", path: "/student-corner/songs-lyrics/patriotic-songs" }
+          ]
+        },
         { label: "Stars of LMA", path: "/student-corner/stars-of-lma" },
         { label: "Budding Artists", path: "/student-corner/budding-artists" },
         { label: "ALMA", path: "/student-corner/alma" },
@@ -144,20 +154,99 @@ const Navigation = () => {
                 <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${activeDropdown === "students" ? "rotate-180" : ""}`} />
               </button>
               {activeDropdown === "students" && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-lg shadow-lg animate-fade-in">
-                  {dropdownMenus.students.items.map((item, index) => (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-lg shadow-lg animate-fade-in z-50">
+                  <Link
+                    to="/student-corner/join-lma"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg"
+                  >
+                    Join LMA
+                  </Link>
+                  <Link
+                    to="/student-corner/teaching-methodology"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors"
+                  >
+                    Teaching Methodology
+                  </Link>
+                  
+                  {/* Songs and Lyrics with submenu */}
+                  <div className="relative group">
                     <Link
-                      key={index}
-                      to={item.path || "#"}
-                      onClick={() => {
-                        if (item.action) item.action();
-                        setActiveDropdown(null);
-                      }}
-                      className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg last:rounded-b-lg"
+                      to="/student-corner/songs-lyrics"
+                      onClick={() => setActiveDropdown(null)}
+                      className="flex items-center justify-between w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors"
                     >
-                      {item.label}
+                      Songs and Lyrics
+                      <ChevronDown className="w-3 h-3 ml-1" />
                     </Link>
-                  ))}
+                    <div className="absolute left-full top-0 w-56 bg-card border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ml-1">
+                      <Link
+                        to="/student-corner/songs-lyrics/composed-by-sri-ramachary-k"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg text-sm"
+                      >
+                        Composed by Sri Ramachary K
+                      </Link>
+                      <Link
+                        to="/student-corner/songs-lyrics/devotional-songs"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors text-sm"
+                      >
+                        Devotional Songs
+                      </Link>
+                      <Link
+                        to="/student-corner/songs-lyrics/light-music-songs"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors text-sm"
+                      >
+                        Light Music Songs
+                      </Link>
+                      <Link
+                        to="/student-corner/songs-lyrics/annamacharya-keerthanalu"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors text-sm"
+                      >
+                        Annamacharya Keerthanalu
+                      </Link>
+                      <Link
+                        to="/student-corner/songs-lyrics/patriotic-songs"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors last:rounded-b-lg text-sm"
+                      >
+                        Patriotic Songs
+                      </Link>
+                    </div>
+                  </div>
+
+                  <Link
+                    to="/student-corner/stars-of-lma"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors"
+                  >
+                    Stars of LMA
+                  </Link>
+                  <Link
+                    to="/student-corner/budding-artists"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors"
+                  >
+                    Budding Artists
+                  </Link>
+                  <Link
+                    to="/student-corner/alma"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors"
+                  >
+                    ALMA
+                  </Link>
+                  <Link
+                    to="/student-corner/inspirational-programmes"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors last:rounded-b-lg"
+                  >
+                    Inspirational Programmes
+                  </Link>
                 </div>
               )}
             </div>
@@ -205,7 +294,7 @@ const Navigation = () => {
             </button>
 
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => window.location.href = '/donations'}
               className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-6 py-2 shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
             >
               Donate
@@ -275,19 +364,92 @@ const Navigation = () => {
               {/* Mobile Students Menu */}
               <div className="border-l-2 border-primary/20 pl-4">
                 <p className="text-primary font-semibold mb-2">Student Corner</p>
-                {dropdownMenus.students.items.map((item, index) => (
+                <Link
+                  to="/student-corner/join-lma"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                >
+                  Join LMA
+                </Link>
+                <Link
+                  to="/student-corner/teaching-methodology"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                >
+                  Teaching Methodology
+                </Link>
+                <Link
+                  to="/student-corner/songs-lyrics"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                >
+                  Songs and Lyrics
+                </Link>
+                <div className="ml-4 space-y-1">
                   <Link
-                    key={index}
-                    to={item.path || "#"}
-                    onClick={() => {
-                      if (item.action) item.action();
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                    to="/student-corner/songs-lyrics/composed-by-sri-ramachary-k"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs"
                   >
-                    {item.label}
+                    • Composed by Sri Ramachary K
                   </Link>
-                ))}
+                  <Link
+                    to="/student-corner/songs-lyrics/devotional-songs"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs"
+                  >
+                    • Devotional Songs
+                  </Link>
+                  <Link
+                    to="/student-corner/songs-lyrics/light-music-songs"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs"
+                  >
+                    • Light Music Songs
+                  </Link>
+                  <Link
+                    to="/student-corner/songs-lyrics/annamacharya-keerthanalu"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs"
+                  >
+                    • Annamacharya Keerthanalu
+                  </Link>
+                  <Link
+                    to="/student-corner/songs-lyrics/patriotic-songs"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs"
+                  >
+                    • Patriotic Songs
+                  </Link>
+                </div>
+                <Link
+                  to="/student-corner/stars-of-lma"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                >
+                  Stars of LMA
+                </Link>
+                <Link
+                  to="/student-corner/budding-artists"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                >
+                  Budding Artists
+                </Link>
+                <Link
+                  to="/student-corner/alma"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                >
+                  ALMA
+                </Link>
+                <Link
+                  to="/student-corner/inspirational-programmes"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                >
+                  Inspirational Programmes
+                </Link>
               </div>
 
               {/* Mobile Activities Menu */}
@@ -323,7 +485,7 @@ const Navigation = () => {
               </button>
 
               <Button
-                onClick={() => scrollToSection("contact")}
+                onClick={() => window.location.href = '/donations'}
                 className="bg-secondary hover:bg-secondary/90 text-secondary-foreground w-full font-semibold shadow-lg"
               >
                 Donate
