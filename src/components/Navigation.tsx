@@ -51,6 +51,15 @@ const Navigation = () => {
         { label: "Testimonials", action: () => scrollToSection("testimonials") }
       ]
     },
+    programs: {
+      title: "Programs",
+      items: [
+        { label: "Beginner Classes", action: () => scrollToSection("programs") },
+        { label: "Advanced Training", action: () => scrollToSection("programs") },
+        { label: "Group Sessions", action: () => scrollToSection("programs") },
+        { label: "Online Classes", action: () => scrollToSection("programs") }
+      ]
+    },
     students: {
       title: "Student Corner",
       items: [
@@ -100,17 +109,20 @@ const Navigation = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           <Link 
             to="/"
             className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer"
             aria-label="Go to home page"
           >
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">♪</span>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-full flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-lg sm:text-xl">♪</span>
             </div>
-            <span className="font-heading font-bold text-xl text-foreground">
+            <span className="font-heading font-bold text-lg sm:text-xl text-foreground hidden sm:block">
               Little Musicians Academy
+            </span>
+            <span className="font-heading font-bold text-base text-foreground sm:hidden">
+              LMA
             </span>
           </Link>
 
@@ -333,35 +345,21 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-foreground"
+            className="lg:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden pb-6 animate-fade-in">
-            <div className="flex flex-col space-y-4">
-              <button
-                onClick={() => scrollToSection("home")}
-                className="text-foreground hover:text-primary transition-colors font-medium text-left py-2"
-              >
-                Home
-              </button>
-              
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-foreground hover:text-primary transition-colors font-medium text-left py-2"
-              >
-                About LMA
-              </button>
-
+          <div className="lg:hidden pb-4 sm:pb-6 animate-fade-in bg-card/95 backdrop-blur-md rounded-b-lg border-t border-border/50">
+            <div className="flex flex-col space-y-2 px-2 pt-4">
               {/* Mobile About Menu */}
-              <div className="border-l-2 border-primary/20 pl-4">
-                <p className="text-primary font-semibold mb-2">About</p>
+              <div className="border-l-2 border-primary/20 pl-3 sm:pl-4 py-2">
+                <p className="text-primary font-semibold mb-2 text-sm sm:text-base">About</p>
                 {dropdownMenus.about.items.map((item, index) => (
                   <Link
                     key={index}
@@ -370,48 +368,34 @@ const Navigation = () => {
                       if (item.action) item.action();
                       setIsMobileMenuOpen(false);
                     }}
-                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs sm:text-sm"
                   >
                     {item.label}
                   </Link>
                 ))}
               </div>
 
-              {/* Mobile Programs Menu */}
-              <div className="border-l-2 border-primary/20 pl-4">
-                <p className="text-primary font-semibold mb-2">Programs</p>
-                {dropdownMenus.programs.items.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={item.action}
-                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Mobile Students Menu */}
-              <div className="border-l-2 border-primary/20 pl-4">
-                <p className="text-primary font-semibold mb-2">Student Corner</p>
+              {/* Mobile Student Corner Menu */}
+              <div className="border-l-2 border-primary/20 pl-3 sm:pl-4 py-2">
+                <p className="text-primary font-semibold mb-2 text-sm sm:text-base">Student Corner</p>
                 <Link
                   to="/student-corner/join-lma"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs sm:text-sm"
                 >
                   Join LMA
                 </Link>
                 <Link
                   to="/student-corner/teaching-methodology"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs sm:text-sm"
                 >
                   Teaching Methodology
                 </Link>
                 <Link
                   to="/student-corner/songs-lyrics"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                  className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs sm:text-sm"
                 >
                   Songs and Lyrics
                 </Link>
@@ -483,8 +467,8 @@ const Navigation = () => {
               </div>
 
               {/* Mobile Activities Menu */}
-              <div className="border-l-2 border-primary/20 pl-4">
-                <p className="text-primary font-semibold mb-2">Activities</p>
+              <div className="border-l-2 border-primary/20 pl-3 sm:pl-4 py-2">
+                <p className="text-primary font-semibold mb-2 text-sm sm:text-base">Activities</p>
                 {dropdownMenus.activities.items.map((item, index) => (
                   <Link
                     key={index}
@@ -493,7 +477,7 @@ const Navigation = () => {
                       if (item.action) item.action();
                       setIsMobileMenuOpen(false);
                     }}
-                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs sm:text-sm"
                   >
                     {item.label}
                   </Link>
@@ -501,14 +485,14 @@ const Navigation = () => {
               </div>
 
               {/* Mobile Donations Menu */}
-              <div className="border-l-2 border-primary/20 pl-4">
-                <p className="text-primary font-semibold mb-2">Donations</p>
+              <div className="border-l-2 border-primary/20 pl-3 sm:pl-4 py-2">
+                <p className="text-primary font-semibold mb-2 text-sm sm:text-base">Donations</p>
                 {dropdownMenus.donations.items.map((item, index) => (
                   <Link
                     key={index}
                     to={item.path || "#"}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-xs sm:text-sm"
                   >
                     {item.label}
                   </Link>
@@ -516,22 +500,21 @@ const Navigation = () => {
               </div>
 
               <button
-                onClick={() => scrollToSection("testimonials")}
-                className="text-foreground hover:text-primary transition-colors font-medium text-left py-2"
+                onClick={() => {
+                  scrollToSection("contact");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-foreground hover:text-primary transition-colors font-medium text-left py-2 text-sm sm:text-base"
               >
-                Gallery
-              </button>
-
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-foreground hover:text-primary transition-colors font-medium text-left py-2"
-              >
-                Contact
+                Contact Us
               </button>
 
               <Button
-                onClick={() => window.location.href = '/donations'}
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground w-full font-semibold shadow-lg"
+                onClick={() => {
+                  window.location.href = '/donations';
+                  setIsMobileMenuOpen(false);
+                }}
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground w-full font-semibold shadow-lg text-sm sm:text-base py-2"
               >
                 Donate
               </Button>
@@ -544,3 +527,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+             

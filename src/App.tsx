@@ -31,6 +31,10 @@ import HealthHelpline from "@/pages/activities/events/HealthHelpline";
 import GlobalWorkshops from "@/pages/activities/events/GlobalWorkshops";
 import LMAInMedia from "@/pages/activities/events/LMAInMedia";
 import AssociatedEvents from "@/pages/activities/events/AssociatedEvents";
+import SponsorChild from "@/pages/donations/SponsorChild";
+import MonthlyDonations from "@/pages/donations/MonthlyDonations";
+import CorporatePartnerships from "@/pages/donations/CorporatePartnerships";
+import Volunteer from "@/pages/donations/Volunteer";
 
 const queryClient = new QueryClient();
 
@@ -38,7 +42,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Router>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <div className="font-sans">
             <Routes>
               <Route path="/" element={<Index />} />
@@ -75,8 +79,12 @@ function App() {
               <Route path="/activities/charity" element={<Charity />} />
               <Route path="/activities/workshops" element={<Workshops />} />
               
-              {/* Donations Route */}
+              {/* Donations Routes */}
               <Route path="/donations" element={<Donations />} />
+              <Route path="/donations/sponsor-child" element={<SponsorChild />} />
+              <Route path="/donations/monthly" element={<MonthlyDonations />} />
+              <Route path="/donations/corporate" element={<CorporatePartnerships />} />
+              <Route path="/donations/volunteer" element={<Volunteer />} />
               
               {/* 404 Not Found */}
               <Route path="*" element={<NotFound />} />
