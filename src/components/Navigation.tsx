@@ -80,6 +80,16 @@ const Navigation = () => {
         { label: "Charity", path: "/activities/charity" },
         { label: "Workshops", path: "/activities/workshops" }
       ]
+    },
+    donations: {
+      title: "Donations",
+      items: [
+        { label: "Donate Now", path: "/donations" },
+        { label: "Sponsor a Child", path: "/donations/sponsor-child" },
+        { label: "Monthly Donations", path: "/donations/monthly" },
+        { label: "Corporate Partnerships", path: "/donations/corporate" },
+        { label: "Volunteer", path: "/donations/volunteer" }
+      ]
     }
   };
 
@@ -279,12 +289,32 @@ const Navigation = () => {
               )}
             </div>
 
-            <Link
-              to="/donations"
-              className="text-foreground hover:text-primary transition-colors font-medium py-2"
-            >
-              Donations
-            </Link>
+            {/* Donations Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown("donations")}
+                className="flex items-center text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                Donations
+                <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${activeDropdown === "donations" ? "rotate-180" : ""}`} />
+              </button>
+              {activeDropdown === "donations" && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-lg shadow-lg animate-fade-in">
+                  {dropdownMenus.donations.items.map((item, index) => (
+                    <Link
+                      key={index}
+                      to={item.path || "#"}
+                      onClick={() => {
+                        setActiveDropdown(null);
+                      }}
+                      className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-muted transition-colors first:rounded-t-lg last:rounded-b-lg"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <button
               onClick={() => scrollToSection("contact")}
@@ -463,6 +493,21 @@ const Navigation = () => {
                       if (item.action) item.action();
                       setIsMobileMenuOpen(false);
                     }}
+                    className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile Donations Menu */}
+              <div className="border-l-2 border-primary/20 pl-4">
+                <p className="text-primary font-semibold mb-2">Donations</p>
+                {dropdownMenus.donations.items.map((item, index) => (
+                  <Link
+                    key={index}
+                    to={item.path || "#"}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-foreground hover:text-primary transition-colors text-left py-1 text-sm"
                   >
                     {item.label}

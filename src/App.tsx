@@ -24,6 +24,13 @@ import DevotionalSongs from "@/pages/student-corner/songs-lyrics/DevotionalSongs
 import LightMusicSongs from "@/pages/student-corner/songs-lyrics/LightMusicSongs";
 import AnnamacharyaKeerthanalu from "@/pages/student-corner/songs-lyrics/AnnamacharyaKeerthanalu";
 import PatrioticSongs from "@/pages/student-corner/songs-lyrics/PatrioticSongs";
+import PastEvents from "@/pages/activities/events/PastEvents";
+import Celebrations from "@/pages/activities/events/Celebrations";
+import UpcomingEvents from "@/pages/activities/events/UpcomingEvents";
+import HealthHelpline from "@/pages/activities/events/HealthHelpline";
+import GlobalWorkshops from "@/pages/activities/events/GlobalWorkshops";
+import LMAInMedia from "@/pages/activities/events/LMAInMedia";
+import AssociatedEvents from "@/pages/activities/events/AssociatedEvents";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +65,13 @@ function App() {
               
               {/* Activities Routes */}
               <Route path="/activities/events" element={<Events />} />
+              <Route path="/activities/events/past-events" element={<PastEvents />} />
+              <Route path="/activities/events/celebrations" element={<Celebrations />} />
+              <Route path="/activities/events/upcoming-events" element={<UpcomingEvents />} />
+              <Route path="/activities/events/health-helpline" element={<HealthHelpline />} />
+              <Route path="/activities/events/global-workshops" element={<GlobalWorkshops />} />
+              <Route path="/activities/events/lma-media" element={<LMAInMedia />} />
+              <Route path="/activities/events/associated-events" element={<AssociatedEvents />} />
               <Route path="/activities/charity" element={<Charity />} />
               <Route path="/activities/workshops" element={<Workshops />} />
               
